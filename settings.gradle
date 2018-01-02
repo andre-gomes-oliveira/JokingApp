@@ -1,1 +1,1 @@
-include ':app', ':backend', ':jokeGenerator'
+include ':app', ':backend', ':jokeGenerator', ':jokeViewer'

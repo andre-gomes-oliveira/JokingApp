@@ -43,6 +43,5 @@ dependencies {
 
     /* Local libraries */
     implementation project (':jokeViewer')
-    implementation project (":jokeGenerator")
     implementation project (path: ':backend', configuration: 'android-endpoints')
 }

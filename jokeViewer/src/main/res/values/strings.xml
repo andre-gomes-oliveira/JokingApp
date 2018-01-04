@@ -3,4 +3,7 @@
     <string name="title_activity_joke">jokeActivity</string>
     <string name="user_message_error_loading">Failed to load a joke, please try again later.</string>
     <string name="bundle_joke">bundle_joke_text</string>
+    <string name="interstitial_ad_service_id" translatable="false">"ca-app-pub-3940256099942544~3347511713"</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="flavor_free" translatable="false">free</string>
 </resources>

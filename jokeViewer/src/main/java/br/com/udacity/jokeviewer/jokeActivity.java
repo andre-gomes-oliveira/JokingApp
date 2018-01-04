@@ -3,7 +3,6 @@ package br.com.udacity.jokeviewer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,7 +14,6 @@ public class jokeActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
 
-    private FloatingActionButton mNewJokeButton;
 
     private TextView mJokeTextView;
 
@@ -27,19 +25,10 @@ public class jokeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_joke);
 
         mToolbar = findViewById(R.id.toolbar);
-        mNewJokeButton = findViewById(R.id.fab);
         mJokeTextView = findViewById(R.id.tv_joke_display);
         mErrorMessageTextView = findViewById(R.id.tv_error_message_display);
 
         setSupportActionBar(mToolbar);
-
-        mNewJokeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         if (savedInstanceState != null) {
             mJoke = savedInstanceState.getString(getString(R.string.bundle_joke));
@@ -58,5 +47,11 @@ public class jokeActivity extends AppCompatActivity {
             mJokeTextView.setVisibility(View.GONE);
             mErrorMessageTextView.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(getString(R.string.bundle_joke), mJoke);
     }
 }

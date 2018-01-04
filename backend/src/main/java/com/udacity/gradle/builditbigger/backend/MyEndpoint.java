@@ -10,7 +10,7 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import br.com.udacity.jokegenerator.Joker;
+import br.com.udacity.jokegenerator.funnyClass;
 
 /** An endpoint class we are exposing */
 @Api(
@@ -28,7 +28,7 @@ public class MyEndpoint {
     @ApiMethod(name = "getJoke")
     public MyBean getJoke() {
         MyBean response = new MyBean();
-        response.setData(Joker.getJoke());
+        response.setData(funnyClass.getJoke());
 
         return response;
     }

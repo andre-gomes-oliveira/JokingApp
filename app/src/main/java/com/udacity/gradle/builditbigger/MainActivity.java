@@ -5,15 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.udacity.gradle.builditbigger.utils.EndpointsAsyncTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    /* ProgressBar used to inform the user that data is being fetched, if necessary */
+    private ProgressBar mLoadingIndicator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
     }
 
 
@@ -39,8 +45,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    @Override
+    protected void onResume() {
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
+        super.onResume();
+    }
 
+    public void tellJoke(View view) {
+        mLoadingIndicator.setVisibility(View.VISIBLE);
         new EndpointsAsyncTask().execute(this);
     }
 }
